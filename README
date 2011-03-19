@@ -2,3 +2,7 @@ A collection of tools and eclipse plugins aiming to ease and speed up the develo
 
 = Features =
 Gwt Event Creator Wizard.
+
+= Installation =
+Download the newest version using the 'Download' button at the top of the page, copy the downloaded jar to 'your_eclipse_dir/plugins' and restart Eclipse.
+The GwtEventCreatorWizard can be found in the following eclipse menu: File->New->Other...->Gwt Event Greator.
