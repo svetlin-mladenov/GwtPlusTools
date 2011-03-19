@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: GwtEventCreator
-Bundle-SymbolicName: GwtEventCreator; singleton:=true
+Bundle-SymbolicName: GwtPlusTools;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.github.svetlin_mladenov.gwteventcreator.Activator
 Require-Bundle: org.eclipse.ui,
