@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="GWT Helper Wizards"
+            id="GwtEventCreatorWizard">
+      </category>
+      <wizard
+            name="Gwt Event Creator"
+            icon="icons/wizard_icon.gif"
+            category="GwtEventCreatorWizard"
+            class="com.github.svetlin_mladenov.gwteventcreator.wizards.GwtEventCreatorWizard"
+            id="com.github.svetlin_mladenov.gwteventcreator.wizards.GwtEventCreatorWizard">
+      </wizard>
+   </extension>
+
+</plugin>
