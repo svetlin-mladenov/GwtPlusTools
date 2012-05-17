@@ -44,7 +44,14 @@ public class GwtEventCreatorWizard extends Wizard implements INewWizard {
 	 */
 
 	public void addPages() {
-		page = new GwtEventCreatorWizardPage(selection);
+		page = new GwtEventCreatorWizardPage();
+		if (selection instanceof IStructuredSelection) {
+			//TODO make selection of type IStructedSelection
+			page.initialize((IStructuredSelection)selection);
+		} else {
+			page.initialize(null);
+		}
+		
 		addPage(page);
 	}
 
@@ -54,15 +61,16 @@ public class GwtEventCreatorWizard extends Wizard implements INewWizard {
 	 * using wizard as execution context.
 	 */
 	public boolean performFinish() {
-		final String containerName = page.getContainerName();
+		final String containerName = page.getTargetFolderName();
 		
-		String eventNameCandidate = page.getEventName();
-		if (eventNameCandidate.toLowerCase().endsWith("event")) {
-			eventNameCandidate = eventNameCandidate.substring(0, eventNameCandidate.length() - 5);//"event".length() == 5
-		}
-		final String eventName = eventNameCandidate;
 		
-		final EventStructsNames names = EventStructsNames.create(page.getPackageName(), eventName, page.generateHasInterface(), page.generateSeperateGetTypeMethod(), page.lazyCreateEventType());
+		final EventStructsNames names = EventStructsNames.create(
+				page.getPackageName(),
+				page.getEventName(),
+				page.generateHasInterface(),
+				page.generateSeperateGetTypeMethod(),
+				page.lazyCreateEventType()
+			);
 		
 		
 		IRunnableWithProgress op = new IRunnableWithProgress() {
