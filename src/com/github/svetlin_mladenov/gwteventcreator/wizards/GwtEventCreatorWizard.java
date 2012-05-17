@@ -150,7 +150,7 @@ public class GwtEventCreatorWizard extends Wizard implements INewWizard {
 			public InputStream openEventClassStream(EventStructsNames names) {
 				String contents =
 					"package " + names.getPackageName() + ";\n\n" +
-					"import com.google.gwt.event.shared.HandlerRegistration\n;" +
+					"import com.google.gwt.event.shared.HandlerRegistration;\n" +
 					"import com.google.gwt.event.shared.HasHandlers;\n\n" +
 					"public interface " + names.getHasInterfaceName() + " extends HasHandlers {\n\n" +
 						  "\tHandlerRegistration add" + names.getHandlerInterfaceName() + "(" + names.getHandlerInterfaceName() + " handler);\n\n" +
