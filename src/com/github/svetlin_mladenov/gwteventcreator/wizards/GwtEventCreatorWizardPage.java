@@ -38,9 +38,7 @@ public class GwtEventCreatorWizardPage extends NewTypeWizardPage {
 	 * @see IDialogPage#createControl(Composite)
 	 */
 	public void createControl(Composite parent) {
-		
 		final int nColumns= 4;
-		
 		Composite mainUiContainer = createUiMainContainer(parent, nColumns);
 		
 		createContainerControls(mainUiContainer, nColumns);
@@ -49,6 +47,34 @@ public class GwtEventCreatorWizardPage extends NewTypeWizardPage {
 		
 		createSeparator(mainUiContainer, nColumns);
 		
+		createGenerateHasInterfaceControls(mainUiContainer, nColumns);
+		createGenerateSeparateGetTypeControls(mainUiContainer, nColumns);
+		createLazyCreatyTypeControls(mainUiContainer, nColumns);
+		
+		setControl(mainUiContainer);
+	}
+	
+	private void createLazyCreatyTypeControls(Composite mainUiContainer, int nColumns) {
+		GridData optionsGD = new GridData(GridData.FILL_HORIZONTAL);
+		optionsGD.horizontalSpan = 3;
+		
+		lazyCreateTypeButton = new Button(mainUiContainer, SWT.CHECK);
+		lazyCreateTypeButton.setLayoutData(optionsGD);
+		lazyCreateTypeButton.setSelection(true);
+		lazyCreateTypeButton.setText("Lazy Event's TYPE creation. (memory micro optimization)");
+	}
+
+	private void createGenerateSeparateGetTypeControls(Composite mainUiContainer, int nColumns) {
+		GridData optionsGD = new GridData(GridData.FILL_HORIZONTAL);
+		optionsGD.horizontalSpan = 3;
+		
+		generateSeparateGetTypeButton = new Button(mainUiContainer, SWT.CHECK);
+		generateSeparateGetTypeButton.setLayoutData(optionsGD);
+		generateSeparateGetTypeButton.setText("Generate Separate getType() method in Event class.");
+		generateSeparateGetTypeButton.setSelection(true);
+	}
+
+	private void createGenerateHasInterfaceControls(Composite mainUiContainer, int nColumns) {
 		GridData optionsGD = new GridData(GridData.FILL_HORIZONTAL);
 		optionsGD.horizontalSpan = 3;
 		
@@ -56,20 +82,8 @@ public class GwtEventCreatorWizardPage extends NewTypeWizardPage {
 		generateHasInterfaceButton.setLayoutData(optionsGD);
 		generateHasInterfaceButton.setText("Generated Has Interface");
 		generateHasInterfaceButton.setSelection(true);
-		
-		generateSeparateGetTypeButton = new Button(mainUiContainer, SWT.CHECK);
-		generateSeparateGetTypeButton.setLayoutData(optionsGD);
-		generateSeparateGetTypeButton.setText("Generate Separate getType() method in Event class.");
-		generateSeparateGetTypeButton.setSelection(true);
-		
-		lazyCreateTypeButton = new Button(mainUiContainer, SWT.CHECK);
-		lazyCreateTypeButton.setLayoutData(optionsGD);
-		lazyCreateTypeButton.setSelection(true);
-		lazyCreateTypeButton.setText("Lazy Event's TYPE creation. (memory micro optimization)");
-		
-		setControl(mainUiContainer);
 	}
-	
+
 	@Override
 	protected String getTypeNameLabel() {
 		//TODO externalize the string
