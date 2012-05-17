@@ -1,7 +1,5 @@
 package com.github.svetlin_mladenov.gwteventcreator.wizards;
 
-import org.eclipse.core.runtime.IPath;
-
 final class EventStructsNames {
 	
 	private static final String EVENT_SUFFIX = "Event";
